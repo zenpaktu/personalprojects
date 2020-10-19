@@ -36,6 +36,7 @@ public class Compute {
 				new Route("C","F",1),
 				new Route("A","C",2)
 				};
+		
 		createGraph(listOfRoutes);
 		// set starting and end points
 		computePath("A", "G");
@@ -44,7 +45,6 @@ public class Compute {
 	public void computePath(String startNode, String endNode) {
 		Queue<String> toVisitNodes = new LinkedList<>();
 		String currentNodeName = startNode;
-		int i = 0;
 		//Set distance of starting node to 0 and previous node as null
 		nodes.get(startNode).setDistance(0);
 		
@@ -70,7 +70,6 @@ public class Compute {
 					continue;	
 				}
 			}
-			i++;
 		} while(!toVisitNodes.isEmpty());
 		
 		Integer shortestDistance = calculateDistance(nodes.get(endNode), true);
