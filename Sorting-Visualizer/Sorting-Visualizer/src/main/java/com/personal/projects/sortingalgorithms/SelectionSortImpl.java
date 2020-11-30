@@ -24,11 +24,11 @@ public class SelectionSortImpl extends AbstractSort{
 			@Override
 		    public void handle(ActionEvent event) {
 				Rectangle current = (Rectangle) hbox.getChildren().get(primaryCtr);
-				animateCurrentIndex(primaryCtr, timemillis, Color.RED);
+				animateCurrentIndexByTimeline(primaryCtr, timemillis, Color.RED);
 		    	double smallestIndex = primaryCtr;
 		    	for (int i = primaryCtr+1; i < listR.size(); i++) {
 		    		Rectangle toCompare = (Rectangle) hbox.getChildren().get(i);
-		    		animateCurrentIndex(i, timemillis/(listR.size()-primaryCtr-1), Color.BLUE);
+		    		animateCurrentIndexByTimeline(i, timemillis/(listR.size()-primaryCtr-1), Color.BLUE);
 		    		if(current.getHeight() > toCompare.getHeight()) {
 		    			current = toCompare;
 		    			smallestIndex = i;

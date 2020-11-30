@@ -37,7 +37,7 @@ public abstract class AbstractSort {
         parTransition.play(); 
 	}
 	
-	public static void animateCurrentIndex(int index, double time, Color color) {
+	public static void animateCurrentIndexByTimeline(int index, double time, Color color) {
     	Rectangle toCompare = (Rectangle) hbox.getChildren().get(index);
 		FillTransition fillTransition = new FillTransition(Duration.millis(time), 
 				toCompare);
@@ -47,5 +47,15 @@ public abstract class AbstractSort {
         fillTransition.setAutoReverse(true);
         fillTransition.play(); 
     }
+	
+	public static void animateCurrentIndexByThreadSleep(Rectangle rect, long time, Color color) { 
+			try {
+				rect.setFill(color);
+	        	Thread.sleep(time);
+	        } catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
 
 }

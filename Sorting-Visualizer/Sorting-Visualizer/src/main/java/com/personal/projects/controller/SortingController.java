@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 import com.personal.projects.sortingalgorithms.AbstractSort;
 import com.personal.projects.sortingalgorithms.BubbleSortImpl;
 import com.personal.projects.sortingalgorithms.SelectionSortImpl;
+import com.personal.projects.sortingalgorithms.Test;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.FillTransition;
@@ -56,28 +57,28 @@ public class SortingController extends Application {
 	
 	public static HBox hbox;
 	
-	public void initialize() {
-		listR = IntStream.range(1, 50).boxed().map(height -> new Rectangle(5, height*10, Color.BLACK)).collect(Collectors.toList());
+	public void initialize(Stage stage) {
+		listR = IntStream.range(1, 100).boxed().map(height -> new Rectangle(5, height*1, Color.BLACK)).collect(Collectors.toList());
         Collections.shuffle(listR);
         hbox = new HBox();
         hbox.getChildren().addAll(listR);
         hbox.setSpacing(1);
         hbox.setAlignment(Pos.BASELINE_CENTER);
+        Scene scene = new Scene(hbox); 
+
+        stage.setScene(scene);
 	}
 	
     @Override
     public void start(Stage stage) {
         
-        initialize();
+        initialize(stage);
         
         //  Creating a Scene 
-        Scene scene = new Scene(hbox); 
-
-        stage.setScene(scene);
         stage.show();
         
-//        AbstractSort sortingAlgo = new SelectionSortImpl();
-        AbstractSort sortingAlgo = new BubbleSortImpl();
+        AbstractSort sortingAlgo = new SelectionSortImpl();
+//        AbstractSort sortingAlgo = new BubbleSortImpl();
         sortingAlgo.sort();
 
     }

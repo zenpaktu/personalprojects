@@ -30,9 +30,9 @@ public class BubbleSortImpl extends AbstractSort {
 				hadSwap = false;
 		    	for (int i = 0; i < listR.size() - primaryCtr -1; i++) {
 		    		Rectangle current = (Rectangle) hbox.getChildren().get(i);
-					animateCurrentIndex(i, timemillis/(listR.size()-primaryCtr-1), Color.RED);
+					animateCurrentIndexByTimeline(i, timemillis/(listR.size()-primaryCtr-1), Color.RED);
 		    		Rectangle toCompare = (Rectangle) hbox.getChildren().get(i+1);
-		    		animateCurrentIndex(i+1, timemillis/(listR.size()-primaryCtr-1), Color.BLUE);
+		    		animateCurrentIndexByTimeline(i+1, timemillis/(listR.size()-primaryCtr-1), Color.BLUE);
 		    		if(current.getHeight() > toCompare.getHeight()) {
 		    			swap(i,i+1, timemillis/(listR.size()-primaryCtr-1));
 		    			hadSwap = true;
